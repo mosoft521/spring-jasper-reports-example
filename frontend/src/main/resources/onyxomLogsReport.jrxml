@@ -4,8 +4,8 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<field name="logType" class="java.lang.String"/>
-	<field name="username" class="java.lang.String"/>
-	<field name="ipAddress" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="ip" class="java.lang.String"/>
 	<field name="date" class="java.util.Date"/>
 	<background>
 		<band splitType="Stretch"/>
@@ -109,7 +109,7 @@
 						<rightPen lineWidth="1.0"/>
 					</box>
 					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{ipAddress}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{ip}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="138" y="0" width="138" height="20"/>
@@ -121,7 +121,7 @@
 						<rightPen lineWidth="1.0"/>
 					</box>
 					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
-					<textFieldExpression class="java.lang.String"><![CDATA[$F{username}]]></textFieldExpression>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{name}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="414" y="0" width="138" height="20"/>
