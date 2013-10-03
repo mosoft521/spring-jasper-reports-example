@@ -7,7 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author kurocenko
@@ -16,39 +20,39 @@ import java.util.*;
 @RequestMapping("/")
 public class JasperReportsController {
 
-	private static final String JASPER_REPORT_LOGS_KEY = "logsReport";
+    private static final String JASPER_REPORT_LOGS_KEY = "logsReport";
 
-	@RequestMapping
-	public ModelAndView renderPdf() {
+    @RequestMapping
+    public ModelAndView renderPdf() {
 
-		JRDataSource dataSource = new JRBeanCollectionDataSource(prepareEntries());
+        JRDataSource dataSource = new JRBeanCollectionDataSource(prepareEntries());
 
-		Map<String, Object> parameterMap = new HashMap<String, Object>();
-		parameterMap.put("datasource", dataSource);
-		parameterMap.put("logTable", dataSource);
+        Map<String, Object> parameterMap = new HashMap<String, Object>();
+        parameterMap.put("datasource", dataSource);
+        parameterMap.put("logTable", dataSource);
 
-		return new ModelAndView(JASPER_REPORT_LOGS_KEY, parameterMap);
-	}
+        return new ModelAndView(JASPER_REPORT_LOGS_KEY, parameterMap);
+    }
 
-	private static List<LogEntry> prepareEntries() {
-		List<LogEntry> items = new ArrayList<LogEntry>();
+    private static List<LogEntry> prepareEntries() {
+        List<LogEntry> items = new ArrayList<LogEntry>();
 
-		items.add(newLogEntry("TypeA", "NameA", "255.255.255.200", new Date(System.currentTimeMillis())));
-		items.add(newLogEntry("TypeB", "NameB", "255.255.255.201", new Date(System.currentTimeMillis())));
-		items.add(newLogEntry("TypeC", "NameC", "255.255.255.202", new Date(System.currentTimeMillis())));
-		items.add(newLogEntry("TypeD", "NameD", "255.255.255.203", new Date(System.currentTimeMillis())));
+        items.add(newLogEntry("TypeA", "NameA", "255.255.255.200", new Date(System.currentTimeMillis())));
+        items.add(newLogEntry("TypeB", "NameB", "255.255.255.201", new Date(System.currentTimeMillis())));
+        items.add(newLogEntry("TypeC", "NameC", "255.255.255.202", new Date(System.currentTimeMillis())));
+        items.add(newLogEntry("TypeD", "NameD", "255.255.255.203", new Date(System.currentTimeMillis())));
 
-		return items;
-	}
+        return items;
+    }
 
-	private static LogEntry newLogEntry(String logType, String name, String ip, Date date) {
-		LogEntry logEntry = new LogEntry();
-		logEntry.setLogType(logType);
-		logEntry.setName(name);
-		logEntry.setIp(ip);
-		logEntry.setDate(date);
+    private static LogEntry newLogEntry(String logType, String name, String ip, Date date) {
+        LogEntry logEntry = new LogEntry();
+        logEntry.setLogType(logType);
+        logEntry.setName(name);
+        logEntry.setIp(ip);
+        logEntry.setDate(date);
 
-		return logEntry;
-	}
+        return logEntry;
+    }
 
 }
