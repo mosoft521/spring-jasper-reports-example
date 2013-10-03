@@ -68,11 +68,11 @@
 	<field name="logType" class="java.lang.String"/>
 	<field name="name" class="java.lang.String"/>
 	<field name="ip" class="java.lang.String"/>
-	<field name="date" class="java.lang.String"/>
+	<field name="date" class="java.util.Date"/>
 	<variable name="logType" class="java.lang.String"/>
 	<variable name="name" class="java.lang.String"/>
 	<variable name="ip" class="java.lang.String"/>
-	<variable name="date" class="java.lang.String"/>
+	<variable name="date" class="java.util.Date"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -175,7 +175,7 @@
 					<rightPen lineWidth="1.0" lineStyle="Solid"/>
 				</box>
 				<textElement lineSpacing="Single"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{date}]]></textFieldExpression>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{date}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
